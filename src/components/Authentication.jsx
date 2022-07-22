@@ -132,10 +132,18 @@ const Authentication = () => {
                 </>
               )}
             </div>
-            <h5 className="text-white mb-2">OR CONNECT WITH</h5>
-            <div className="text-center d-flex extra-btns">
-              <button id="fb-btn">Facebook</button>
-              <button id="google-btn">Google</button>
+            <p className="text-white mb-2">OR CONNECT WITH</p>
+            <div className="text-center d-flex extra-btns mx-0">
+              <button
+                id="fb-btn"
+                style={{ marginRight: "20px", backgroundColor: "#3d5798" }}>
+                Facebook
+              </button>
+              <button
+                id="google-btn"
+                style={{ marginLeft: "30px", backgroundColor: "#0060df" }}>
+                Google
+              </button>
             </div>
           </div>
         </section>
