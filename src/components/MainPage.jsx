@@ -1,7 +1,7 @@
 /** @format */
 
 import { useState } from "react";
-import { Row, Col } from "react-bootstrap";
+import { Container, Row } from "react-bootstrap";
 import AlbumCard from "./AlbumCard";
 
 const MainPage = ({ logout, user }) => {
@@ -40,41 +40,36 @@ const MainPage = ({ logout, user }) => {
 
   return (
     <>
-      <Col className="col-12 mt-3">
-        <Row>
-          <Col md={12}>
-            <div>
-              <h1>Hello world</h1>
-            </div>
-            <div id="searchResults">
-              <input
-                type="text"
-                className="form-control mb-2"
-                id="searchField"
-                placeholder="Search"
-                aria-label="Search"
-                aria-describedby="basic-addon2"
-                onChange={(event) => setSearchQuery(event.target.value)}
-              />
-              <div className="text-center mt-3">
-                <button
-                  className="btn btn-outline-secondary btn-sm "
-                  type="button"
-                  id="button-addon1"
-                  onClick={() => fetchMusic(searchQuery)}>
-                  Search
-                </button>
-              </div>
-
-              <h2 className="text-center mt-4">Search Results</h2>
-              <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
-                {music &&
-                  music.map((song) => <AlbumCard song={song} key={song.id} />)}
-              </Row>
-            </div>
-          </Col>
-        </Row>
-      </Col>
+      <Container>
+        <div>
+          <h1>Hello world</h1>
+        </div>
+        <div id="searchResults">
+          <input
+            type="text"
+            className="form-control mb-2"
+            id="searchField"
+            placeholder="Search"
+            aria-label="Search"
+            aria-describedby="basic-addon2"
+            onChange={(event) => setSearchQuery(event.target.value)}
+          />
+          <div className="text-center mt-3">
+            <button
+              className="btn btn-outline-secondary btn-sm "
+              type="button"
+              id="button-addon1"
+              onClick={() => fetchMusic(searchQuery)}>
+              Search
+            </button>
+          </div>
+          <h2 className="text-center mt-4">Search Results</h2>
+          <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
+            {music &&
+              music.map((song) => <AlbumCard song={song} key={song.id} />)}
+          </Row>
+        </div>
+      </Container>
     </>
   );
 };

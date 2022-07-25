@@ -6,7 +6,7 @@ import SideBar from "./SideBar";
 
 const Home = ({ logout, user }) => {
   return (
-    <p>
+    <>
       <Row>
         <Col md={3}>
           <SideBar />
@@ -15,7 +15,7 @@ const Home = ({ logout, user }) => {
           <MainPage logout={logout} user={user} />
         </Col>
       </Row>
-    </p>
+    </>
   );
 };
 
