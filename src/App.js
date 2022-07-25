@@ -5,6 +5,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Authentication from "./components/Authentication";
 import Home from "./components/Home";
+import Album from "./components/Album";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Authentication />} />
           <Route path="/home" element={<Home />} />
+          <Route path="/album/:id" element={<Album />} />
         </Routes>
       </BrowserRouter>
     </div>

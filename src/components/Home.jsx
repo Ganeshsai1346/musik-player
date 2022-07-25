@@ -1,6 +1,7 @@
 /** @format */
 import { Col, Row } from "react-bootstrap";
 import "../App.css";
+import MainPage from "./MainPage";
 import SideBar from "./SideBar";
 
 const Home = ({ logout, user }) => {
@@ -11,11 +12,7 @@ const Home = ({ logout, user }) => {
           <SideBar />
         </Col>
         <Col md={9}>
-          <div className="d-flex mt-5">
-            <h1>Hello world</h1>
-            <button onClick={logout}>Logout</button>
-            <h2>{user?.email}</h2>
-          </div>
+          <MainPage logout={logout} user={user} />
         </Col>
       </Row>
     </p>
