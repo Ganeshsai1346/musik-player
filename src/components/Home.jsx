@@ -1,21 +1,19 @@
 /** @format */
 import { Col, Row } from "react-bootstrap";
-import "../App.css";
+import "../css/Home.css";
 import MainPage from "./MainPage";
 import SideBar from "./SideBar";
 
 const Home = ({ logout, user }) => {
   return (
-    <>
-      <Row>
-        <Col md={3}>
-          <SideBar />
-        </Col>
-        <Col md={9}>
-          <MainPage logout={logout} user={user} />
-        </Col>
-      </Row>
-    </>
+    <Row>
+      <Col md={3}>
+        <SideBar />
+      </Col>
+      <Col md={9}>
+        <MainPage logout={logout} user={user} />
+      </Col>
+    </Row>
   );
 };
 
