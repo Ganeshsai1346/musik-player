@@ -11,12 +11,13 @@ import { Link } from "react-router-dom";
 import "../css/SideBar.css";
 import fire from "../firebase-config";
 
-const SideBar = () => {
+const SideBar = ({ search }) => {
   const logout = (e) => {
     fire.auth().signOut();
     e.preventDefault();
   };
 
+  const [searchInput, setSearchInput] = useState("");
   const [show, setShow] = useState(false);
 
   return (
@@ -38,37 +39,45 @@ const SideBar = () => {
             </li>
             <li>
               <div className="nav-link search-field">
-                <i className="bx bx-search nav-link-icon"></i>
-                <input type="text" placeholder="Search..." />
-                <span class="tooltip">Search</span>
+                <i
+                  className="bx bx-search nav-link-icon"
+                  onClick={() => search(searchInput)}></i>
+                <input
+                  type="text"
+                  placeholder="Search..."
+                  onChange={(event) =>
+                    setSearchInput(event.currentTarget.value)
+                  }
+                />
+                <span className="tooltip">Search</span>
               </div>
             </li>
             <li>
               <Link to="/" className="nav-link">
                 <i className="bx bx-home-alt nav-link-icon"></i>
                 <span className="nav-link-name">Home</span>
-                <span class="tooltip">Home</span>
+                <span className="tooltip">Home</span>
               </Link>
             </li>
             <li>
               <Link to="/favourites" className="nav-link">
                 <i className="bx bx-heart nav-link-icon"></i>
                 <span className="nav-link-name">Favourites</span>
-                <span class="tooltip">Favourites</span>
+                <span className="tooltip">Favourites</span>
               </Link>
             </li>
             <li>
               <Link to="/topsongs" className="nav-link">
                 <i className="bx bx-chat nav-link-icon"></i>
                 <span className="nav-link-name">Top Hits</span>
-                <span class="tooltip">Top Hits</span>
+                <span className="tooltip">Top Hits</span>
               </Link>
             </li>
             <li>
               <Link to="/trending" className="nav-link">
                 <i className="bx bxs-hot nav-link-icon"></i>
                 <span className="nav-link-name">Trending</span>
-                <span class="tooltip">Trending</span>
+                <span className="tooltip">Trending</span>
               </Link>
             </li>
             <div className="profile">

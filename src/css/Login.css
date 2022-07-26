@@ -24,7 +24,6 @@ button {
   background-image: url("../assets/bgImg1.jpg");
   background-size: cover;
   background-position: center;
-  justify-content: center;
   align-items: center;
   font-family: "Raleway", sans-serif;
 }
