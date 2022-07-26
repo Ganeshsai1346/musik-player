@@ -22,42 +22,40 @@ const SideBar = ({ search }) => {
 
   return (
     <main className={show ? "space-toggle" : null}>
-      <header className={`header ${show ? "space-toggle" : null}`}>
+      {/*  <header className={`header ${show ? "space-toggle" : null}`}>
         <div className="header-toggle"></div>
-      </header>
+      </header> */}
+
       <aside className={`sidebar ${show ? "show" : null} `}>
-        <nav className="nav">
+        <nav className="nav  navbar-expand-md navbar-white bg-navbar fixed-left justify-content-between">
           <ul className="nav-list">
             <li>
-              <div className="nav-link">
+              <div className="logo-details">
+                <i className="bx bx-music icon ml-2"></i>
                 <i
-                  className="bx bx-menu nav-link-icon"
+                  className="bx bx-menu mr-2"
                   id="btn"
                   onClick={() => setShow(!show)}></i>
-                <div className="logo_name nav-link-name">Music</div>
+                <div className="logo_name ml-3">Musik</div>
               </div>
             </li>
             <li>
-              <div className="nav-link search-field">
-                <i
-                  className="bx bx-search nav-link-icon"
-                  onClick={() => search(searchInput)}></i>
-                <input
-                  type="text"
-                  placeholder="Search..."
-                  onChange={(event) =>
-                    setSearchInput(event.currentTarget.value)
-                  }
-                />
-                <span className="tooltip">Search</span>
-              </div>
+              <i
+                className="bx bx-search"
+                onClick={() => search(searchInput)}></i>
+              <input
+                type="text"
+                placeholder="Search..."
+                onChange={(event) => setSearchInput(event.currentTarget.value)}
+              />
+              <span className="tooltip">Search</span>
             </li>
             <li>
-              <Link to="/" className="nav-link">
+              <a href="/" className="nav-link">
                 <i className="bx bx-home-alt nav-link-icon"></i>
                 <span className="nav-link-name">Home</span>
                 <span className="tooltip">Home</span>
-              </Link>
+              </a>
             </li>
             <li>
               <Link to="/favourites" className="nav-link">

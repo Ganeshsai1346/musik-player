@@ -1,6 +1,18 @@
 /** @format */
+.album-title {
+  color: white;
+  font-weight: bold;
+  font-size: 20px;
+  margin-bottom: 1rem;
+}
 
-.mainPage {
-  background-color: rgb(8, 51, 80) !important;
-  height: 100vh;
+.artist-name {
+  color: white;
+}
+.card-img {
+  border-radius: 50%;
+}
+
+.song-section:hover {
+  background-color: rgb(4, 34, 62);
 }

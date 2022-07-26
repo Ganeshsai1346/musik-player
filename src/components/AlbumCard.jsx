@@ -1,5 +1,6 @@
 /** @format */
 import { Link } from "react-router-dom";
+import "../css/AlbumCard.css";
 
 const AlbumCard = ({ song }) => {
   return (
@@ -9,10 +10,10 @@ const AlbumCard = ({ song }) => {
           <img className="img-fluid" src={song.album.cover_medium} alt="1" />
         </div>
       </Link>
-      <p>
+      <p className="details-section">
         <Link to={"/album/" + song.album.id}>
-          <span>Album:&nbsp;</span>
-          <span>
+          <span className="details">Album:&nbsp;</span>
+          <span className="details">
             "
             {song.album.title.length < 16
               ? song.album.title
@@ -22,8 +23,8 @@ const AlbumCard = ({ song }) => {
           <br />
         </Link>
         <Link to={"/artist/" + song.artist.id}>
-          <span>Artist:&nbsp;</span>
-          <span>{song.artist.name}</span>
+          <span className="details">Artist:&nbsp;</span>
+          <span className="details">{song.artist.name}</span>
         </Link>
       </p>
     </div>

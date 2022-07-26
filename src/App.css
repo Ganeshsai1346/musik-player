@@ -1,7 +1,9 @@
 /** @format */
 body {
-  max-width: 1500px;
+  background-color: rgb(8, 51, 80) !important;
+  max-width: 1550px;
 }
 .App {
-  text-align: center;
+  text-align: center !important;
+  color: white;
 }

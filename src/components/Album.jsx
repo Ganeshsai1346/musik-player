@@ -2,7 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Song from "./Song";
-import { Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import "../css/Album.css";
 
@@ -33,8 +33,10 @@ const Album = () => {
 
       if (response.ok) {
         const album = await response.json();
+        console.log(album);
         setAlbum(album);
         setSongs(album.tracks.data);
+        console.log(songs);
       } else {
         console.log("ERROR");
       }
@@ -44,40 +46,36 @@ const Album = () => {
   };
 
   return (
-    <div className="col-12 mainPage">
-      <Row>
-        {album.cover && (
-          <div className="col-md-3 pt-5 text-center" id="img-container">
-            <img
-              src={album.cover_medium}
-              className="card-img img-fluid"
-              alt="Album"
-            />
-            <div className="mt-4 text-center">
-              <p className="album-title text-light">{album.title}</p>
-            </div>
-            <div className="text-center text-light">
-              <p className="artist-name">
-                {album.artist ? album.artist.name : ""}
-              </p>
-            </div>
-            <div className="mt-4 text-center">
-              <button id="btnPlay" className="btn btn-success" type="button">
-                Play
-              </button>
-            </div>
+    <Row>
+      {album.cover && (
+        <Col md={4} className=" pt-5 text-center" id="img-container">
+          <img
+            src={album.cover_medium}
+            className="card-img img-fluid "
+            alt="Album"
+          />
+          <div className="mt-4 text-center">
+            <p className="album-title text-light">{album.title}</p>
           </div>
-        )}
-        <div className="col-md-8 p-5">
-          <Row>
-            <div className="col-md-10 mb-5" id="trackList">
-              {songs &&
-                songs.map((song) => <Song track={song} key={song.id} />)}
-            </div>
-          </Row>
+          <div className="text-center text-light">
+            <p className="artist-name">
+              {album.artist ? album.artist.name : ""}
+            </p>
+          </div>
+          <div className="mt-4 text-center">
+            <button id="btnPlay" className="btn btn-success" type="button">
+              Play
+            </button>
+          </div>
+        </Col>
+      )}
+      <Col md={7} className="p-5">
+        <div className="mb-5 " id="trackList">
+          {songs.length > 0 &&
+            songs.map((song) => <Song track={song} key={song.id} />)}
         </div>
-      </Row>
-    </div>
+      </Col>
+    </Row>
   );
 };
 

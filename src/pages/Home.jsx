@@ -9,6 +9,7 @@ const Home = ({ logout, user }) => {
   const [searchResults, setSearchResults] = useState([]);
 
   const fetchMusic = async (query) => {
+    setSearchResults([]);
     if (query.length > 2) {
       try {
         const response = await fetch(
@@ -38,11 +39,11 @@ const Home = ({ logout, user }) => {
   };
 
   return (
-    <Row>
+    <Row className="mx-0">
       <Col md={3}>
         <SideBar search={fetchMusic} />
       </Col>
-      <Col md={9}>
+      <Col md={8} className="mt-5">
         <MainPage logout={logout} user={user} searchResults={searchResults} />
       </Col>
     </Row>

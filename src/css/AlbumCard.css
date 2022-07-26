@@ -1,0 +1,8 @@
+/** @format */
+
+.details {
+  color: white;
+}
+.details-section:hover {
+  color: grey !important;
+}
