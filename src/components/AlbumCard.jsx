@@ -7,12 +7,16 @@ const AlbumCard = ({ song }) => {
     <div className="col text-center" id={song.id}>
       <Link to={"/album/" + song.album.id}>
         <div>
-          <img className="img-fluid" src={song.album.cover_medium} alt="1" />
+          <img
+            className="img-fluid box"
+            src={song.album.cover_medium}
+            alt="1"
+          />
         </div>
       </Link>
-      <p className="details-section">
+      <p className="details-section mt-3">
         <Link to={"/album/" + song.album.id}>
-          <span className="details">Album:&nbsp;</span>
+          <span className="details ">Album:&nbsp;</span>
           <span className="details">
             "
             {song.album.title.length < 16

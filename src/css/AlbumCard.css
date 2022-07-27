@@ -6,3 +6,28 @@
 .details-section:hover {
   color: grey !important;
 }
+.box {
+  position: relative;
+  border-radius: 20px;
+  transition: all 0.3s ease-in-out;
+}
+
+.box::after {
+  content: "";
+  position: absolute;
+  z-index: -1;
+  width: 100%;
+  height: 100%;
+  border-radius: 20px;
+  opacity: 0;
+  transition: opacity 0.5s ease-in-out;
+}
+
+.box:hover {
+  transform: scale(1.1, 1.1);
+  border-radius: 20px !important;
+}
+
+.box:hover::after {
+  opacity: 1;
+}
