@@ -15,26 +15,24 @@ const MainPage = ({ searchResults }) => {
   useEffect(() => {
     fetchRomantic();
     fetchRock();
-    fetchRock();
   }, []);
 
   const fetchRomantic = async () => {
     setMusic([]);
     try {
       const response = await fetch(
-        "https://deezerdevs-deezer.p.rapidapi.com/search?q=romantic",
+        "https://striveschool-api.herokuapp.com/api/deezer/search?q=romantic",
         {
           headers: {
-            "X-RapidAPI-Key":
-              "85f7b0f089msh4f95fec2293b7cep1ac28fjsn78f6f1885c53",
-            "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmEzM2RmMDdmZmQ0OTAwMTU4YTdhOWEiLCJpYXQiOjE2NTQ4NjUzOTMsImV4cCI6MTY1NjA3NDk5M30.2OFqiZlYFI8_pway6VuyyVMq_FoFqoK3aOgNgDlGntw",
           },
         }
       );
 
       if (response.ok) {
         const result = await response.json();
-        const songs = result.data;
+        const songs = result.data.slice(0, 4);
         setMusic(songs);
       } else {
         console.log("ERROR !!");
@@ -48,19 +46,18 @@ const MainPage = ({ searchResults }) => {
     setMusic([]);
     try {
       const response = await fetch(
-        "https://deezerdevs-deezer.p.rapidapi.com/search?q=rock",
+        "https://striveschool-api.herokuapp.com/api/deezer/search?q=shakira",
         {
           headers: {
-            "X-RapidAPI-Key":
-              "85f7b0f089msh4f95fec2293b7cep1ac28fjsn78f6f1885c53",
-            "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+            Authorization:
+              "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmEzM2RmMDdmZmQ0OTAwMTU4YTdhOWEiLCJpYXQiOjE2NTQ4NjUzOTMsImV4cCI6MTY1NjA3NDk5M30.2OFqiZlYFI8_pway6VuyyVMq_FoFqoK3aOgNgDlGntw",
           },
         }
       );
 
       if (response.ok) {
         const result = await response.json();
-        const songs = result.data;
+        const songs = result.data.slice(0, 4);
         setRockMusic(songs);
       } else {
         console.log("ERROR !!");

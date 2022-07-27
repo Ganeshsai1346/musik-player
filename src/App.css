@@ -1,6 +1,7 @@
 /** @format */
 body {
   background-color: rgb(8, 51, 80) !important;
+  /* background-image: url("./assets/bgimg-3.jpg"); */
   max-width: 1550px;
 }
 .App {

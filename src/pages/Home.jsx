@@ -13,12 +13,11 @@ const Home = ({ logout, user }) => {
     if (query.length > 2) {
       try {
         const response = await fetch(
-          "https://deezerdevs-deezer.p.rapidapi.com/search?q=" + query,
+          "https://striveschool-api.herokuapp.com/api/deezer/search?q=" + query,
           {
             headers: {
-              "X-RapidAPI-Key":
-                "85f7b0f089msh4f95fec2293b7cep1ac28fjsn78f6f1885c53",
-              "X-RapidAPI-Host": "deezerdevs-deezer.p.rapidapi.com",
+              Authorization:
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmEzM2RmMDdmZmQ0OTAwMTU4YTdhOWEiLCJpYXQiOjE2NTQ4NjUzOTMsImV4cCI6MTY1NjA3NDk5M30.2OFqiZlYFI8_pway6VuyyVMq_FoFqoK3aOgNgDlGntw",
             },
           }
         );
