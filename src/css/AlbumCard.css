@@ -1,10 +1,11 @@
 /** @format */
 
-.details {
-  color: white;
+a {
+  color: rgb(131, 232, 227) !important;
 }
-.details-section:hover {
-  color: grey !important;
+
+a:hover {
+  color: rgb(84, 79, 79) !important;
 }
 .box {
   position: relative;

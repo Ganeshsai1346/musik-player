@@ -1,23 +1,38 @@
 /** @format */
-import { HeartFill, Heart } from "react-bootstrap-icons";
+import { HeartFill, Heart, Plus, Check } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
-import { addToFav, removeFromFav } from "../redux/actions";
+import {
+  addToFav,
+  addToPalylist,
+  removeFromFav,
+  removeFromPalylist,
+} from "../redux/actions";
+import "../css/Song.css";
 
 const Song = ({ track }) => {
-  const songs = useSelector((state) => state.songs);
+  let songs = useSelector((state) => state.favouritesReducer.songs);
 
   const dispatch = useDispatch();
 
-  const isFav = songs.includes(track.title);
+  const isFav = songs.includes(track.id);
 
   const toggleFav = () => {
-    isFav
-      ? dispatch(removeFromFav(track.title))
-      : dispatch(addToFav(track.title));
+    isFav ? dispatch(removeFromFav(track)) : dispatch(addToFav(track));
   };
+
+  let tracks = useSelector((state) => state.playlistReducer.songs);
+
+  const isAdd = tracks.includes(track.id);
+
+  const toggleAdd = () => {
+    isAdd
+      ? dispatch(removeFromPalylist(track))
+      : dispatch(addToPalylist(track));
+  };
+
   return (
     <div
-      className="py-3 text-dark text-left d-flex align-baseline song-section"
+      className="py-3 text-dark text-left d-flex song-section"
       style={{ fontSize: "20px" }}>
       <span style={{ color: "white" }}>
         {isFav ? (
@@ -35,6 +50,13 @@ const Song = ({ track }) => {
           ? "0" + (parseInt(track.duration) % 60)
           : parseInt(track.duration) % 60}
       </small>
+      <span className="ml-3">
+        {isAdd ? (
+          <Check color="white" fontSize="30px" onClick={toggleAdd} />
+        ) : (
+          <Plus color="white" fontSize="30px" onClick={toggleAdd} />
+        )}
+      </span>
     </div>
   );
 };

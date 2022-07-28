@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeFromFav } from "../redux/actions";
 
 const Favourites = () => {
-  const songs = useSelector((state) => state.songs);
+  const songs = useSelector((state) => state.favouritesReducer.songs);
 
   const dispatch = useDispatch();
   return (
@@ -23,8 +23,10 @@ const Favourites = () => {
                     onClick={() => dispatch(removeFromFav(track))}
                   />
                   <span style={{ color: "white", fontSize: "20px" }}>
-                    {track}
+                    {track.title}
                   </span>
+                  <span>{track.id}</span>
+                  <img src={track.album.cover} alt="artistimage" />
                 </div>
               ))}
           </div>

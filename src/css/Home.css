@@ -1,9 +1,8 @@
 /** @format */
 
-/* .whole-page {
-  background-image: url("../assets/bgimg5.jpeg");
+.whole-page {
+  background-image: url("../assets/BG2.webp");
   background-size: cover;
   background-position: center;
-  align-items: center;
+  max-width: 1700px !important;
 }
- */

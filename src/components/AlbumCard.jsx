@@ -14,9 +14,9 @@ const AlbumCard = ({ song }) => {
           />
         </div>
       </Link>
-      <p className="details-section mt-3">
+      <p className="mt-3">
         <Link to={"/album/" + song.album.id}>
-          <span className="details ">Album:&nbsp;</span>
+          <span className="details">Album:&nbsp;</span>
           <span className="details">
             "
             {song.album.title.length < 16
@@ -26,7 +26,7 @@ const AlbumCard = ({ song }) => {
           </span>
           <br />
         </Link>
-        <Link to={"/artist/" + song.artist.id}>
+        <Link to={"/artist/" + song.artist.id} id="detail-link">
           <span className="details">Artist:&nbsp;</span>
           <span className="details">{song.artist.name}</span>
         </Link>

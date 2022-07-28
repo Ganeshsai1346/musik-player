@@ -2,8 +2,10 @@
 body {
   /* background-color: rgb(71, 160, 220) !important; */
   background-image: url("./assets/bgImg1.jpg");
-
+  background-repeat: no-repeat;
+  background-size: cover;
   background-position: center;
+  object-fit: contain;
   align-items: center;
   max-width: 1550px;
 }

@@ -1,12 +1,13 @@
 /** @format */
 
-import { Col, Container, Row } from "react-bootstrap";
+import { Col, Row } from "react-bootstrap";
 import Favourites from "../components/Favourites";
 import SideBar from "../components/SideBar";
+import "../css/FavouritesPage.css";
 
 const FavouritesPage = () => {
   return (
-    <Container className="album-page">
+    <div className="favourites-page">
       <Row>
         <Col md={2}>
           <SideBar />
@@ -15,7 +16,7 @@ const FavouritesPage = () => {
           <Favourites />
         </Col>
       </Row>
-    </Container>
+    </div>
   );
 };
 

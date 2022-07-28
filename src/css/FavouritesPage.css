@@ -1,0 +1,9 @@
+/** @format */
+
+.favourites-page {
+  background-size: cover !important;
+  background-position: center !important;
+  align-items: center !important;
+  max-width: 1500px;
+  height: 100vh;
+}

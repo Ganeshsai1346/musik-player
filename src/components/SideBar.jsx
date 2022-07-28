@@ -65,6 +65,13 @@ const SideBar = ({ search }) => {
               </Link>
             </li>
             <li>
+              <Link to="/playlist" className="nav-link">
+                <i className="bx bxs-playlist"></i>
+                <span className="nav-link-name">Play Lists</span>
+                <span className="tooltip">Play Lists</span>
+              </Link>
+            </li>
+            <li>
               <Link to="/topsongs" className="nav-link">
                 <i className="bx bx-chat nav-link-icon"></i>
                 <span className="nav-link-name">Top Hits</span>
