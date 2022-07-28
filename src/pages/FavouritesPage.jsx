@@ -1,11 +1,10 @@
 /** @format */
 
 import { Col, Container, Row } from "react-bootstrap";
-import Album from "../components/Album";
-import Player from "../components/Player";
+import Favourites from "../components/Favourites";
 import SideBar from "../components/SideBar";
 
-const AlbumPage = () => {
+const FavouritesPage = () => {
   return (
     <Container className="album-page">
       <Row>
@@ -13,14 +12,11 @@ const AlbumPage = () => {
           <SideBar />
         </Col>
         <Col md={10}>
-          <Album />
-        </Col>
-        <Col md={12}>
-          <Player />
+          <Favourites />
         </Col>
       </Row>
     </Container>
   );
 };
 
-export default AlbumPage;
+export default FavouritesPage;

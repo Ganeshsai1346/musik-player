@@ -4,6 +4,7 @@ import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import MainPage from "../components/MainPage";
 import SideBar from "../components/SideBar";
+import "../css/Home.css";
 
 const Home = ({ logout, user }) => {
   const [searchResults, setSearchResults] = useState([]);
@@ -38,14 +39,16 @@ const Home = ({ logout, user }) => {
   };
 
   return (
-    <Row className="mx-0">
-      <Col md={3}>
-        <SideBar search={fetchMusic} />
-      </Col>
-      <Col md={8} className="mt-5">
-        <MainPage logout={logout} user={user} searchResults={searchResults} />
-      </Col>
-    </Row>
+    <div className="whole-page">
+      <Row className="mx-0">
+        <Col md={3}>
+          <SideBar search={fetchMusic} />
+        </Col>
+        <Col md={8} className="mt-5">
+          <MainPage logout={logout} user={user} searchResults={searchResults} />
+        </Col>
+      </Row>
+    </div>
   );
 };
 

@@ -1,7 +1,10 @@
 /** @format */
 body {
-  background-color: rgb(8, 51, 80) !important;
-  /* background-image: url("./assets/bgimg-3.jpg"); */
+  /* background-color: rgb(71, 160, 220) !important; */
+  background-image: url("./assets/bgImg1.jpg");
+
+  background-position: center;
+  align-items: center;
   max-width: 1550px;
 }
 .App {

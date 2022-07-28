@@ -1,0 +1,8 @@
+/** @format */
+
+.player {
+  background-color: aqua;
+  position: sticky !important;
+  top: 0;
+  bottom: 0;
+}
