@@ -47,7 +47,7 @@ const Album = () => {
   return (
     <Row>
       {album.cover && (
-        <Col md={4} className=" pt-5 text-center" id="img-container">
+        <Col md={3} className=" pt-5 text-center" id="img-container">
           <img
             src={album.cover_medium}
             className="card-img img-fluid "
@@ -68,10 +68,12 @@ const Album = () => {
           </div>
         </Col>
       )}
-      <Col md={7} className="p-5">
+      <Col md={9} className="p-5">
         <div className="mb-5 " id="trackList">
           {songs.length > 0 &&
-            songs.map((song) => <Song track={song} key={song.id} />)}
+            songs.map((song) => (
+              <Song track={song} currentSong={song} key={song.id} />
+            ))}
         </div>
       </Col>
     </Row>

@@ -15,9 +15,6 @@ const AlbumPage = () => {
         <Col md={10}>
           <Album />
         </Col>
-        <Col md={12}>
-          <Player />
-        </Col>
       </Row>
     </Container>
   );

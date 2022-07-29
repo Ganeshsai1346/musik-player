@@ -5,7 +5,7 @@ import { encryptTransform } from "redux-persist-transform-encrypt";
 import { persistStore, persistReducer } from "redux-persist";
 import favouritesReducer from "../reducers/favourites";
 import playlistReducer from "../reducers/playlist";
-
+import playReducer from "../reducers/play";
 import localStorage from "redux-persist/lib/storage";
 
 const persistConfig = {
@@ -13,7 +13,7 @@ const persistConfig = {
   storage: localStorage,
   transforms: [
     encryptTransform({
-      secretKey: "Ganesjgekjgh",
+      secretKey: process.env.REACT_APP_SUPER_SECRET_KEY,
     }),
   ],
 };
@@ -21,6 +21,7 @@ const persistConfig = {
 const bigReducer = combineReducers({
   favouritesReducer,
   playlistReducer,
+  playReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, bigReducer);

@@ -4,17 +4,19 @@ import { useDispatch, useSelector } from "react-redux";
 import {
   addToFav,
   addToPalylist,
+  playSong,
   removeFromFav,
   removeFromPalylist,
 } from "../redux/actions";
 import "../css/Song.css";
+import { useEffect } from "react";
 
-const Song = ({ track }) => {
+const Song = ({ track, currentSong }) => {
   let songs = useSelector((state) => state.favouritesReducer.songs);
 
   const dispatch = useDispatch();
 
-  const isFav = songs.includes(track.id);
+  const isFav = songs.find((s) => s.id === track.id) ? true : false;
 
   const toggleFav = () => {
     isFav ? dispatch(removeFromFav(track)) : dispatch(addToFav(track));
@@ -22,7 +24,7 @@ const Song = ({ track }) => {
 
   let tracks = useSelector((state) => state.playlistReducer.songs);
 
-  const isAdd = tracks.includes(track.id);
+  const isAdd = tracks.find((s) => s.id === track.id) ? true : false;
 
   const toggleAdd = () => {
     isAdd
@@ -30,6 +32,13 @@ const Song = ({ track }) => {
       : dispatch(addToPalylist(track));
   };
 
+  useEffect(() => {
+    console.log(songs);
+  }, [songs]);
+
+  useEffect(() => {
+    console.log(tracks);
+  }, [tracks]);
   return (
     <div
       className="py-3 text-dark text-left d-flex song-section"
@@ -50,11 +59,17 @@ const Song = ({ track }) => {
           ? "0" + (parseInt(track.duration) % 60)
           : parseInt(track.duration) % 60}
       </small>
-      <span className="ml-3">
+      <span className="ml-3 text-white playlist ">
         {isAdd ? (
-          <Check color="white" fontSize="30px" onClick={toggleAdd} />
+          <>
+            <Check color="white" fontSize="30px" onClick={toggleAdd} />{" "}
+            <span>Added To playlist</span>
+          </>
         ) : (
-          <Plus color="white" fontSize="30px" onClick={toggleAdd} />
+          <>
+            <Plus color="white" fontSize="30px" onClick={toggleAdd} />{" "}
+            <span>Add To playlist</span>
+          </>
         )}
       </span>
     </div>

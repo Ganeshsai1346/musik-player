@@ -4,11 +4,14 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
+import { PeopleFill } from "react-bootstrap-icons";
 import { useParams } from "react-router-dom";
 import "../css/Artist.css";
+import AlbumCard from "./AlbumCard";
 
 const Artist = () => {
   const [artist, setArtist] = useState([]);
+  const [songs, setSongs] = useState([]);
 
   const artistId = useParams().id;
 
@@ -34,8 +37,28 @@ const Artist = () => {
         const artist = await response.json();
         console.log(artist);
         setArtist(artist);
+
+        const trackData = await fetch(
+          "https://striveschool-api.herokuapp.com/api/deezer/search?q=" +
+            artist.name,
+          {
+            method: "GET",
+            headers: {
+              Authorization:
+                "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MmEzM2RmMDdmZmQ0OTAwMTU4YTdhOWEiLCJpYXQiOjE2NTQ4NjUzOTMsImV4cCI6MTY1NjA3NDk5M30.2OFqiZlYFI8_pway6VuyyVMq_FoFqoK3aOgNgDlGntw",
+            },
+          }
+        );
+        if (trackData.ok) {
+          const allTracks = await trackData.json();
+          console.log(allTracks);
+          setSongs(allTracks.data);
+          console.log(songs);
+        } else {
+          console.log("ERROR!!");
+        }
       } else {
-        console.log("ERROR");
+        console.log("ERROR!!");
       }
     } catch (error) {
       console.log(error);
@@ -43,25 +66,51 @@ const Artist = () => {
   };
 
   return (
-    <Row>
-      <Col md={6}>
-        <div className="col-12 col-md-10 col-lg-10 mt-5">
-          <img src={artist.picture} alt="artist-img" />
-          <h2 className="titleMain">{artist.name}</h2>
-          <div id="followers">{artist.nb_fan} followers</div>
-          <div className="d-flex justify-content-center" id="button-container">
-            <button className="btn btn-success mr-2 mainButton" id="playButton">
-              <span></span>
-            </button>
-            <button
-              className="btn btn-outline-light mainButton"
-              id="followButton">
-              FOLLOW
-            </button>
+    <div>
+      <Row>
+        <Col md={12}>
+          <div className="mt-5">
+            <img
+              className="artist-img mb-3"
+              src={artist.picture_medium}
+              alt="artist-img"
+            />
+            <h2 className="titleMain mb-2">{artist.name}</h2>
+            <div id="followers">
+              {artist.nb_fan} <PeopleFill />
+            </div>
+            <div
+              className="d-flex justify-content-center mt-3"
+              id="button-container">
+              <button
+                className="btn btn-success mr-2 mainButton"
+                id="playButton">
+                <span>Play</span>
+              </button>
+              <button
+                className="btn btn-outline-light mainButton"
+                id="followButton">
+                FOLLOW
+              </button>
+            </div>
           </div>
-        </div>
-      </Col>
-    </Row>
+        </Col>
+      </Row>
+      <Row className="mb-3">
+        <Col md={12}>
+          <div className="mt-4 d-flex justify-content-center">
+            <h2 className="text-white text-center font-weight-bold">Songs</h2>
+          </div>
+          <div className="pt-5 mb-5">
+            <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
+              {songs?.map((song) => (
+                <AlbumCard song={song} key={song.id} />
+              ))}
+            </Row>
+          </div>
+        </Col>
+      </Row>
+    </div>
   );
 };
 
