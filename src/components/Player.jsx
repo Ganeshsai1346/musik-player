@@ -17,7 +17,7 @@ export default Player;
 
 import React from "react";
 import { connect } from "react-redux";
-import { playSong } from "../redux/actions";
+import { playSong, selectSongById } from "../redux/actions";
 import { MDBIcon } from "mdbreact";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
@@ -29,14 +29,17 @@ import "react-h5-audio-player/lib/styles.css";
 const mapStateToProps = (state) => ({
   currentSong: state.playReducer.currentSong,
 
-  /* isPlaying: false, */
+  /*   selectedSong: state.selectSongReducer.selectedSong,
+   */
+  selectedSongId: state.selectSongReducer.selectedSongId,
+  songs: state.favouritesReducer.songs,
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addToCurrentSong: (song) => dispatch(playSong(song)),
+  /*  addToCurrentSong: (song) => dispatch(playSong(song)), */
 });
 
-const Footer = ({ currentSong }) => {
+const Player = ({ currentSong, selectedSongId, songs }) => {
   const params = useParams();
   const albumId = params.id;
   console.log(albumId);
@@ -75,6 +78,17 @@ const Footer = ({ currentSong }) => {
   }
   console.log(currentSong);
 
+  const onBackwardClick = () => {
+    if (selectedSongId > 0) {
+      selectSongById(selectedSongId - 1);
+    }
+  };
+  const onForwardClick = () => {
+    if (selectedSongId < songs.length - 1) {
+      selectSongById(selectedSongId + 1);
+    }
+  };
+
   return (
     <div className="container playbar">
       <div className="footerdiv">
@@ -103,7 +117,7 @@ const Footer = ({ currentSong }) => {
             </>
           )}
         </div>
-        <div className="footermaindiv px-0">
+        <div className="footermaindiv px-0 d-flex">
           {currentSong && (
             <AudioPlayer className="audio" src={currentSong.preview} controls />
           )}
@@ -114,7 +128,7 @@ const Footer = ({ currentSong }) => {
               </p>
               <Link
                 className="favalbumlinkfooter text-white"
-                to={"/Album/" + currentSong.albumId}>
+                to={"/album/" + currentSong.albumId}>
                 <p className="currentSong">{currentSong.albumName}</p>
               </Link>
             </div>
@@ -133,4 +147,4 @@ const Footer = ({ currentSong }) => {
   );
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(Footer);
+export default connect(mapStateToProps, mapDispatchToProps)(Player);

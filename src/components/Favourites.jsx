@@ -1,45 +1,64 @@
 /** @format */
-
-import { Col, Container, Row } from "react-bootstrap";
-import { HeartFill } from "react-bootstrap-icons";
+import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { Row, Col } from "react-bootstrap";
+import { HeartFill } from "react-bootstrap-icons";
 import { removeFromFav } from "../redux/actions";
 import "../css/Favourites.css";
-const Favourites = () => {
+
+const FavouritesDuplicate = () => {
   const songs = useSelector((state) => state.favouritesReducer.songs);
 
   const dispatch = useDispatch();
+
   return (
-    <Row>
-      {songs &&
-        songs.map((track, i) => (
-          <Col md={2} className="mt-5">
-            <div className="d-flex flex-column">
-              <img
-                src={track.album.cover_medium}
-                alt=""
-                className="album-img"
-              />
-              <div style={{ color: "white", fontSize: "20px" }}>
-                <span className="mr-3">
+    <>
+      <h2 className="my-4">Favourites</h2>
+      <Row className="row-pad">
+        {songs &&
+          songs.map((track, i) => (
+            <Col md={3} className="mt-2">
+              <div className="text-center" id={track.id}>
+                <Link to={"/album/" + track.album.id}>
+                  <div>
+                    <img
+                      className="img-fluid box box-img"
+                      src={track.album.cover_medium}
+                      alt="1"
+                    />
+                  </div>
+                </Link>
+
+                <p className="mt-2 mb-1">
+                  <Link to={"/album/" + track.album.id}>
+                    <span className="details">Album:&nbsp;</span>
+                    <span className="details">
+                      "
+                      {track.album.title.length < 16
+                        ? track.album.title
+                        : track.album.title.substring(0, 16) + "..."}
+                      "
+                    </span>
+                    <br />
+                  </Link>
+                  <Link to={"/artist/" + track.artist.id} id="detail-link">
+                    <span className="details">Artist:&nbsp;</span>
+                    <span className="details">{track.artist.name}</span>
+                  </Link>
+                </p>
+                <p className="mt-0">
                   <HeartFill
                     color="green"
-                    fontSize="20px"
+                    fontSize="25px"
                     onClick={() => dispatch(removeFromFav(track))}
                   />
-                </span>
-                <span style={{ color: "white", fontSize: "15px" }}>
-                  Song:&nbsp;{track.title}
-                </span>
+                </p>
               </div>
-              <span style={{ color: "white", fontSize: "15px" }} className="">
-                Artist:&nbsp;{track.artist.name}
-              </span>
-            </div>
-          </Col>
-        ))}
-    </Row>
+            </Col>
+          ))}
+      </Row>
+    </>
   );
 };
 
-export default Favourites;
+export default FavouritesDuplicate;

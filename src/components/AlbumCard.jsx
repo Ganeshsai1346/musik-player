@@ -4,7 +4,7 @@ import "../css/AlbumCard.css";
 
 const AlbumCard = ({ song }) => {
   return (
-    <div className="col text-center" id={song.id}>
+    <div className="col text-center " id={song.id}>
       <Link to={"/album/" + song.album.id}>
         <div>
           <img

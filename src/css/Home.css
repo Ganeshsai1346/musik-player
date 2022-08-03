@@ -1,8 +1,10 @@
 /** @format */
 
 .whole-page {
-  background-image: url("../assets/BG2.webp");
-  background-size: cover;
-  background-position: center;
-  max-width: 1700px !important;
+  background: rgb(0, 20, 36);
+  background: linear-gradient(
+    90deg,
+    rgba(0, 20, 36, 0.8746849081429446) 17%,
+    rgba(255, 0, 147, 1) 63%
+  );
 }

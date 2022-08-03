@@ -23,7 +23,7 @@ const MainPage = ({ searchResults }) => {
     setMusic([]);
     try {
       const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/deezer/search?q=crime",
+        "https://striveschool-api.herokuapp.com/api/deezer/search?q=Schlager",
         {
           headers: {
             Authorization:
@@ -48,7 +48,7 @@ const MainPage = ({ searchResults }) => {
     setMusic([]);
     try {
       const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/deezer/search?q=hiphop",
+        "https://striveschool-api.herokuapp.com/api/deezer/search?q=Ilayaraja",
         {
           headers: {
             Authorization:
@@ -59,7 +59,7 @@ const MainPage = ({ searchResults }) => {
 
       if (response.ok) {
         const result = await response.json();
-        const songs = result.data.slice(0, 4);
+        const songs = result.data.slice(12, 16);
         setHipHopMusic(songs);
       } else {
         console.log("ERROR !!");
@@ -73,7 +73,7 @@ const MainPage = ({ searchResults }) => {
     setMusic([]);
     try {
       const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/deezer/search?q=rock",
+        "https://striveschool-api.herokuapp.com/api/deezer/search?q=italian",
         {
           headers: {
             Authorization:
@@ -84,7 +84,7 @@ const MainPage = ({ searchResults }) => {
 
       if (response.ok) {
         const result = await response.json();
-        const songs = result.data.slice(0, 4);
+        const songs = result.data.slice(12, 16);
         setRockMusic(songs);
       } else {
         console.log("ERROR !!");
@@ -102,7 +102,7 @@ const MainPage = ({ searchResults }) => {
             <div className="mb-5">
               <CarouselComp />
             </div>
-            <h2 className="text-left mt-4">Romantic Songs</h2>
+            <h2 className="text-left mt-4">German</h2>
             <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
               {music &&
                 music.map((song) => <AlbumCard song={song} key={song.id} />)}
@@ -112,7 +112,7 @@ const MainPage = ({ searchResults }) => {
 
         {searchResults.length === 0 && (
           <>
-            <h2 className="text-left mt-4">Love Songs</h2>
+            <h2 className="text-left mt-4">Ilayaraja Melodies</h2>
             <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
               {hipHopMusic &&
                 hipHopMusic.map((song) => (
@@ -124,7 +124,7 @@ const MainPage = ({ searchResults }) => {
 
         {searchResults.length === 0 && (
           <>
-            <h2 className="text-left mt-4">Love Songs</h2>
+            <h2 className="text-left mt-4">Italian</h2>
             <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
               {rockMusic &&
                 rockMusic.map((song) => (

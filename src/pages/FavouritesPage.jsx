@@ -7,16 +7,14 @@ import "../css/FavouritesPage.css";
 
 const FavouritesPage = () => {
   return (
-    <div className="favourites-page">
-      <Row>
-        <Col md={2}>
-          <SideBar />
-        </Col>
-        <Col md={10}>
-          <Favourites />
-        </Col>
-      </Row>
-    </div>
+    <Row className="favourites-page">
+      <Col md={2}>
+        <SideBar />
+      </Col>
+      <Col md={10}>
+        <Favourites />
+      </Col>
+    </Row>
   );
 };
 

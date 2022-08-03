@@ -39,16 +39,14 @@ const Home = ({ logout, user }) => {
   };
 
   return (
-    <div className="whole-page">
-      <Row className="mx-0">
-        <Col md={3}>
-          <SideBar search={fetchMusic} />
-        </Col>
-        <Col md={8} className="mt-5">
-          <MainPage logout={logout} user={user} searchResults={searchResults} />
-        </Col>
-      </Row>
-    </div>
+    <Row className="whole-page">
+      <Col md={3}>
+        <SideBar search={fetchMusic} />
+      </Col>
+      <Col md={8} className="mt-5">
+        <MainPage logout={logout} user={user} searchResults={searchResults} />
+      </Col>
+    </Row>
   );
 };
 

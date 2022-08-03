@@ -47,7 +47,7 @@ const Album = () => {
   return (
     <Row>
       {album.cover && (
-        <Col md={3} className=" pt-5 text-center" id="img-container">
+        <Col md={3} className="pt-5 text-center" id="img-container">
           <img
             src={album.cover_medium}
             className="card-img img-fluid "

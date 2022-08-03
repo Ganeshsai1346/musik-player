@@ -5,12 +5,16 @@
   font-size: 20px;
   margin-bottom: 1rem;
 }
-
+#img-container {
+  padding-top: 12rem !important;
+}
 .artist-name {
   color: white;
 }
 .card-img {
   border-radius: 50%;
+  width: 200px;
+  height: 200px;
 }
 
 .song-section:hover {

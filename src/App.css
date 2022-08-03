@@ -1,14 +1,12 @@
 /** @format */
+
 body {
-  /* background-color: rgb(71, 160, 220) !important; */
-  background-image: url("./assets/bgImg1.jpg");
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center;
   object-fit: contain;
   align-items: center;
-  max-width: 1550px;
-  height: 100% !important;
+  min-height: 100vh;
+  width: 100vw;
+  margin: 0 auto !important;
+  overflow-x: hidden !important;
 }
 .App {
   text-align: center !important;
