@@ -1,9 +1,3 @@
-/**
- * /* eslint-disable jsx-a11y/anchor-is-valid
- *
- * @format
- */
-
 /** @format */
 
 import { useState } from "react";
@@ -68,7 +62,7 @@ const SideBar = ({ search }) => {
                 </Link>
               </li>
               <li>
-                <Link to="/playlist" className="nav-link">
+                <Link to="/playlists" className="nav-link">
                   <i className="bx bxs-playlist"></i>
                   <span className="nav-link-name">Play Lists</span>
                   <span className="tooltip">Play Lists</span>
@@ -86,6 +80,11 @@ const SideBar = ({ search }) => {
                   <i className="bx bxs-hot nav-link-icon"></i>
                   <span className="nav-link-name">Trending</span>
                   <span className="tooltip">Trending</span>
+                </Link>
+              </li>
+              <li className="mt-4">
+                <Link to="/premium" className="">
+                  <button style={{ backgroundColor: "coral" }}>Upgrade</button>
                 </Link>
               </li>
               <div className="profile">

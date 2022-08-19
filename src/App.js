@@ -8,6 +8,9 @@ import Home from "./pages/Home";
 import AlbumPage from "./pages/AlbumPage";
 import ArtistPage from "./pages/ArtistPage";
 import FavouritesPage from "./pages/FavouritesPage";
+import PlayListPage from "./pages/PlayListPage";
+import PaymentPage from "./pages/PaymentPage";
+import PremiumPage from "./pages/PremiumPage";
 
 function App() {
   return (
@@ -18,6 +21,9 @@ function App() {
           <Route path="/album/:id" element={<AlbumPage />} />
           <Route path="/artist/:id" element={<ArtistPage />} />
           <Route path="/favourites" element={<FavouritesPage />} />
+          <Route path="/playlists" element={<PlayListPage />} />
+          <Route path="/premium" element={<PremiumPage />} />
+          <Route path="/payment" element={<PaymentPage />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>

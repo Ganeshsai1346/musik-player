@@ -1,6 +1,5 @@
 /** @format */
 
-import { useState } from "react";
 import { Col, Row } from "react-bootstrap";
 import Album from "../components/Album";
 import Player from "../components/Player";

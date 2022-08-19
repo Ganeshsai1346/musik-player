@@ -1,6 +1,6 @@
 /** @format */
 
-.album-page {
+.premium-page {
   background: rgb(0, 20, 36);
   background: linear-gradient(
     90deg,
@@ -8,8 +8,4 @@
     rgba(255, 0, 147, 1) 63%
   );
   min-height: 100vh;
-}
-.col-pad {
-  padding-left: 2rem;
-  padding-right: 2rem;
 }

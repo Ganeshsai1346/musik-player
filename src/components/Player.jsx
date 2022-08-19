@@ -17,15 +17,14 @@ export default Player;
 
 import React from "react";
 import { connect } from "react-redux";
-import { playSong, selectSongById } from "../redux/actions";
 import { MDBIcon } from "mdbreact";
 import { useState, useEffect } from "react";
 import { useParams, Link } from "react-router-dom";
 // import ReactAudioPlayer from 'react-audio-player';
 import AudioPlayer from "react-h5-audio-player";
 import "react-h5-audio-player/lib/styles.css";
-/* import "../css/Player.css";
- */
+import "../css/Player.css";
+
 const mapStateToProps = (state) => ({
   currentSong: state.playReducer.currentSong,
 
@@ -78,70 +77,57 @@ const Player = ({ currentSong, selectedSongId, songs }) => {
   }
   console.log(currentSong);
 
-  const onBackwardClick = () => {
-    if (selectedSongId > 0) {
-      selectSongById(selectedSongId - 1);
-    }
-  };
-  const onForwardClick = () => {
-    if (selectedSongId < songs.length - 1) {
-      selectSongById(selectedSongId + 1);
-    }
-  };
-
   return (
-    <div className="container playbar">
-      <div className="footerdiv">
-        <div id="footerArtist" className="text-white">
-          {currentSong ? (
-            <div className="footerSong d-flex flex-row">
-              <p className="footerTitle mt-1">
-                <strong>{currentSong.title}</strong>
+    <div className="footerdiv player playbar">
+      <div id="footerArtist" className="text-white ">
+        {currentSong ? (
+          <div className="footerSong d-flex text-center">
+            <span className="footerTitle mt-3 ml-3">
+              <strong>{currentSong.title}</strong>
+            </span>
+            <Link
+              className="favalbumlinkfooterright text-white"
+              to={"/Album/" + currentSong.albumId}>
+              <button id="footerButton">
+                <MDBIcon icon="record-vinyl" className="footerAlbum" />
+              </button>
+            </Link>
+          </div>
+        ) : (
+          <>
+            <div className="footerSong ml-2">
+              <p>Blond</p>
+              <p className="card-text my-1 ml-2" id="footerArtist">
+                <small>Frank Ocean</small>
               </p>
-              <Link
-                className="favalbumlinkfooterright text-white"
-                to={"/Album/" + currentSong.albumId}>
-                <button id="footerButton">
-                  <MDBIcon icon="record-vinyl" className="footerAlbum" />
-                </button>
-              </Link>
             </div>
-          ) : (
-            <>
-              <div className="footerSong ml-2">
-                <p>Blond</p>
-                <p className="card-text my-1 ml-2" id="footerArtist">
-                  <small>Frank Ocean</small>
-                </p>
-              </div>
-            </>
-          )}
-        </div>
-        <div className="footermaindiv px-0 d-flex">
-          {currentSong && (
-            <AudioPlayer className="audio" src={currentSong.preview} controls />
-          )}
+          </>
+        )}
+      </div>
+      <div className="footermaindiv px-0 d-flex">
+        {currentSong && (
+          <AudioPlayer className="audio" src={currentSong.preview} controls />
+        )}
+
+        {currentSong.album && (
           <div className="footerCover text-white">
             <div className="col-lg-12 mr-3">
-              <p className="card-text my-0 mt-1" id="footerArtistSmall">
-                {currentSong.title}
-              </p>
               <Link
                 className="favalbumlinkfooter text-white"
                 to={"/album/" + currentSong.albumId}>
-                <p className="currentSong">{currentSong.albumName}</p>
+                <p className="currentSong">{currentSong.album.title}</p>
               </Link>
             </div>
             <img
               src={currentSong.album.cover}
               alt=""
-              className="img-fluid"
+              className="img-fluid short-img"
               id="footercover"
               height="67rem"
               width="67rem"
             />
           </div>
-        </div>
+        )}
       </div>
     </div>
   );

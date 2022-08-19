@@ -201,7 +201,13 @@ main {
   text-align: center;
   line-height: 60px;
 }
+.sidebar button {
+  opacity: 0;
+}
 
+.sidebar.show button {
+  opacity: 1;
+}
 .nav {
   display: flex;
   flex-direction: column;

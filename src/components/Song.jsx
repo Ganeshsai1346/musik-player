@@ -1,5 +1,5 @@
 /** @format */
-import { HeartFill, Heart, Plus, Check } from "react-bootstrap-icons";
+import { HeartFill, Heart } from "react-bootstrap-icons";
 import { useDispatch, useSelector } from "react-redux";
 import {
   addToFav,
@@ -65,27 +65,55 @@ const Song = ({ track, currentSong }) => {
       <span className="px-3 text-white playlist">
         {isAdd ? (
           <>
-            <Check color="white" fontSize="30px" onClick={toggleAdd} />{" "}
-            <span></span>
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              onClick={toggleAdd}>
+              <path d="M15 6H3V8H15V6Z" fill="currentColor" />
+              <path d="M15 10H3V12H15V10Z" fill="currentColor" />
+              <path d="M3 14H11V16H3V14Z" fill="currentColor" />
+              <path
+                d="M11.9905 15.025L13.4049 13.6106L15.526 15.7321L19.7687 11.4895L21.1829 12.9037L15.526 18.5606L11.9905 15.025Z"
+                fill="currentColor"
+              />
+            </svg>
           </>
         ) : (
           <>
-            <Plus color="white" fontSize="30px" onClick={toggleAdd} />{" "}
-            <span></span>
+            <svg
+              width="30"
+              height="30"
+              viewBox="0 0 24 24"
+              fill="none"
+              xmlns="http://www.w3.org/2000/svg"
+              onClick={toggleAdd}>
+              <path d="M2 5H14V7H2V5Z" fill="currentColor" />
+              <path d="M2 9H14V11H2V9Z" fill="currentColor" />
+              <path d="M10 13H2V15H10V13Z" fill="currentColor" />
+              <path
+                d="M16 9H18V13H22V15H18V19H16V15H12V13H16V9Z"
+                fill="currentColor"
+              />
+            </svg>
           </>
         )}
       </span>
       <span className="px-5 text-white ">
         <a draggable="false" href={track.link}>
           <svg
-            role="img"
-            height="24"
-            width="24"
-            viewBox="0 0 24 24"
-            className="download-link">
+            xmlns="http://www.w3.org/2000/svg"
+            width="25"
+            height="25"
+            fill="currentColor"
+            className="bi bi-arrow-right-circle"
+            viewBox="0 0 16 16">
             <path
-              d="M11.5 0C5.149 0 0 5.148 0 11.5 0 17.851 5.149 23 11.5 23S23 17.851 23 11.5C23 5.148 17.851 0 11.5 0zm0 22C5.71 22 1 17.29 1 11.5S5.71 1 11.5 1 22 5.71 22 11.5 17.29 22 11.5 22zm.499-6.842V5h-1v10.149l-3.418-3.975-.758.652 4.678 5.44 4.694-5.439-.757-.653-3.439 3.984z"
-              fill="currentColor"></path>
+              fillRule="evenodd"
+              d="M1 8a7 7 0 1 0 14 0A7 7 0 0 0 1 8zm15 0A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM4.5 7.5a.5.5 0 0 0 0 1h5.793l-2.147 2.146a.5.5 0 0 0 .708.708l3-3a.5.5 0 0 0 0-.708l-3-3a.5.5 0 1 0-.708.708L10.293 7.5H4.5z"
+            />
           </svg>
         </a>
       </span>
