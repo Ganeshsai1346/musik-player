@@ -6,3 +6,19 @@
   border-radius: 50%;
   background-color: aqua;
 }
+.carousel-control-next-icon,
+.carousel-control-prev-icon {
+  margin-top: 26rem;
+}
+
+@media (max-width: 768px) {
+  .car-img {
+    width: 460px !important;
+    height: 200px !important;
+    border-radius: 20px;
+  }
+  .carousel-control-next-icon,
+  .carousel-control-prev-icon {
+    margin-top: 10rem;
+  }
+}

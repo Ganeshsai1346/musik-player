@@ -1,9 +1,11 @@
 /** @format */
 
 import { useState } from "react";
+import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
 import "../css/SideBar.css";
 import fire from "../firebase-config";
+import { getSongsAction } from "../redux/actions";
 
 const SideBar = ({ search }) => {
   const logout = (e) => {
@@ -14,9 +16,11 @@ const SideBar = ({ search }) => {
   const [searchInput, setSearchInput] = useState("");
   const [show, setShow] = useState(false);
 
+  const dispatch = useDispatch();
+
   const navigate = useNavigate();
   return (
-    <div className="d-none d-md-none d-lg-block">
+    <div className="sideNav">
       <main className={show ? "space-toggle" : null}>
         <aside className={`sidebar ${show ? "show" : null} `}>
           <nav className="nav  navbar-expand-md navbar-white bg-navbar fixed-left justify-content-between">
@@ -35,8 +39,9 @@ const SideBar = ({ search }) => {
                 <i
                   className="bx bx-search"
                   onClick={() => {
-                    search(searchInput);
-                    navigate("/");
+                    dispatch(getSongsAction(searchInput));
+                    /* search(searchInput); */
+                    navigate("/searchResults");
                   }}></i>
                 <input
                   type="text"
@@ -45,7 +50,6 @@ const SideBar = ({ search }) => {
                     setSearchInput(event.currentTarget.value)
                   }
                 />
-                <span className="tooltip">Search</span>
               </li>
               <li>
                 <a href="/" className="nav-link">
@@ -83,7 +87,7 @@ const SideBar = ({ search }) => {
                 </Link>
               </li>
               <li className="mt-4">
-                <Link to="/premium" className="">
+                <Link to="/premium" className="upg-btn">
                   <button style={{ backgroundColor: "coral" }}>Upgrade</button>
                 </Link>
               </li>

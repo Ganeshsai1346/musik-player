@@ -7,3 +7,12 @@
 .playlist {
   align-items: baseline !important;
 }
+
+@media (max-width: 600px) {
+  .card-title {
+    font-size: medium;
+  }
+  .duration {
+    padding: 0 !important;
+  }
+}

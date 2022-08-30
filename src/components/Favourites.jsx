@@ -6,7 +6,7 @@ import { HeartFill } from "react-bootstrap-icons";
 import { removeFromFav } from "../redux/actions";
 import "../css/Favourites.css";
 
-const FavouritesDuplicate = () => {
+const Favourites = () => {
   const songs = useSelector((state) => state.favouritesReducer.songs);
 
   const dispatch = useDispatch();
@@ -17,7 +17,7 @@ const FavouritesDuplicate = () => {
       <Row className="row-pad">
         {songs &&
           songs.map((track, i) => (
-            <Col md={3} className="mt-2">
+            <Col md={3} className="mt-2" key={track.id}>
               <div className="text-center" id={track.id}>
                 <Link to={"/album/" + track.album.id}>
                   <div>
@@ -61,4 +61,4 @@ const FavouritesDuplicate = () => {
   );
 };
 
-export default FavouritesDuplicate;
+export default Favourites;

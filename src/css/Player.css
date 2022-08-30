@@ -51,3 +51,16 @@
 .currentSong {
   margin: 0;
 }
+
+@media screen and (max-width: 600px) {
+  .playbar {
+    width: 400px;
+    position: fixed;
+    bottom: 0;
+    left: 13%;
+    z-index: 99;
+  }
+  .footerTitle {
+    display: none;
+  }
+}

@@ -6,7 +6,7 @@ const FormComponent = () => {
   return (
     <div className="container form">
       <div id="Checkout" className="inline">
-        <h1>Pay Invoice</h1>
+        <h1>Payment</h1>
         <div className="card-row">
           <span className="visa"></span>
           <span className="mastercard"></span>
@@ -14,20 +14,18 @@ const FormComponent = () => {
           <span className="discover"></span>
         </div>
         <div className="all">
-          {/* <div className="form-group">
+          <div className="form-group">
             <label>Name on card</label>
             <input id="NameOnCard" className="form-control" type="text"></input>
-          </div> */}
+          </div>
           <div className="form-group">
             <label>Card number</label>
             <CardElement className="card-elem" />
           </div>
 
-          <div className="security-code-group form-group">
-            <div className="cvc-preview-container two-card hide">
-              <div className="amex-cvc-preview"></div>
-              <div className="visa-mc-dis-cvc-preview"></div>
-            </div>
+          <div className="cvc-preview-container two-card hide">
+            <div className="amex-cvc-preview"></div>
+            <div className="visa-mc-dis-cvc-preview"></div>
           </div>
           {/* <div className="zip-code-group form-group">
             <label>ZIP/Postal code</label>

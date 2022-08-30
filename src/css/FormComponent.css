@@ -6,6 +6,8 @@
 }
 .card-elem {
   border: 1px solid rgb(201, 197, 197);
+  border-radius: 5px;
+  padding-left: 1rem;
   height: 40px;
 }
 body {
@@ -186,7 +188,6 @@ a[role="button"]:hover {
 
 .cvc-preview-container {
   overflow: hidden;
-  margin-left: -15rem;
   margin-top: 1rem;
 }
 
@@ -194,14 +195,15 @@ a[role="button"]:hover {
   width: 48%;
   text-align: center;
   height: 80px;
+  margin-bottom: 1rem;
 }
 
 .cvc-preview-container.two-card div.amex-cvc-preview {
-  float: left;
+  display: inline-flex;
 }
 
 .cvc-preview-container.two-card div.visa-mc-dis-cvc-preview {
-  float: right;
+  display: inline-flex;
 }
 
 .cvc-preview-container div {

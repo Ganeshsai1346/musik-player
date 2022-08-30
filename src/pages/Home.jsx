@@ -41,10 +41,10 @@ const Home = ({ logout, user }) => {
   return (
     <Row className="whole-page">
       <Col md={3}>
-        <SideBar search={fetchMusic} />
+        <SideBar />
       </Col>
       <Col md={8} className="mt-5">
-        <MainPage logout={logout} user={user} searchResults={searchResults} />
+        <MainPage logout={logout} user={user} />
       </Col>
     </Row>
   );

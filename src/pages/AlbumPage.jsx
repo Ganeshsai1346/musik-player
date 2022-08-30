@@ -38,15 +38,21 @@ const AlbumPage = () => {
     }
   }; */
   return (
-    <Row className="album-page">
-      <Col md={2}>
-        <SideBar />
-      </Col>
-      <Col md={10} className="col-pad">
-        <Album />
-        <Player />
-      </Col>
-    </Row>
+    <>
+      <Row className="album-page">
+        <Col md={2}>
+          <SideBar />
+        </Col>
+        <Col md={10} className="col-pad">
+          <Album />
+        </Col>
+      </Row>
+      <Row>
+        <Col md={10} className="player-sec">
+          <Player />
+        </Col>
+      </Row>
+    </>
   );
 };
 

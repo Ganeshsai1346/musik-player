@@ -92,6 +92,9 @@ main {
   opacity: 0;
 }
 
+.sidebar input:focus {
+  background: #0e1f39 !important;
+}
 .sidebar input[type] {
   color: #fff !important;
 }
@@ -120,6 +123,14 @@ main {
 .sidebar.show .bx-search:hover {
   color: #fff;
 }
+
+.search-input {
+  background-color: #0e1f39 !important;
+}
+/* .sidebar.show .bx-search:active {
+  background-color: inherit !important;
+} */
+
 .sidebar .bx-search:hover {
   cursor: pointer;
 }
@@ -138,7 +149,7 @@ main {
   top: -20px;
   left: calc(100% + 200px);
   z-index: 99;
-  background: #fff;
+  /* background: #fff; */
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
   padding: 6px 14px;
   border-radius: 4px;
@@ -283,4 +294,13 @@ main {
 .sidebar.show .profile #log_out {
   width: 60px;
   background: #8a817c !important;
+}
+
+@media (max-width: 800px) {
+  .sideNav {
+    display: none;
+  }
+}
+.upg-btn:hover {
+  box-shadow: 0 10px 16px 1px rgb(8, 33, 87);
 }

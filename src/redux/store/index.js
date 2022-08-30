@@ -7,6 +7,7 @@ import favouritesReducer from "../reducers/favourites";
 import playlistReducer from "../reducers/playlist";
 import playReducer from "../reducers/play";
 import selectSongReducer from "../reducers/selectSong";
+import songsReducer from "../reducers/songs";
 import localStorage from "redux-persist/lib/storage";
 
 const persistConfig = {
@@ -24,12 +25,17 @@ const bigReducer = combineReducers({
   playlistReducer,
   playReducer,
   selectSongReducer,
+  songsReducer,
 });
 
 const persistedReducer = persistReducer(persistConfig, bigReducer);
 
 export const store = configureStore({
   reducer: persistedReducer,
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware({
+      serializableCheck: false,
+    }),
 });
 
 export const persistor = persistStore(store);

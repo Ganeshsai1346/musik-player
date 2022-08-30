@@ -51,7 +51,7 @@ const Song = ({ track, currentSong }) => {
         )}
       </span>
       <span
-        className="card-title px-3 flex-grow-1"
+        className="card-title px-2 flex-grow-1"
         style={{ color: "white" }}
         onClick={() => dispatch(playSong(track))}>
         {track.title}

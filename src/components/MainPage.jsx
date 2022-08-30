@@ -48,7 +48,7 @@ const MainPage = ({ searchResults }) => {
     setMusic([]);
     try {
       const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/deezer/search?q=Ilayaraja",
+        "https://striveschool-api.herokuapp.com/api/deezer/search?q=arrahman",
         {
           headers: {
             Authorization:
@@ -97,54 +97,34 @@ const MainPage = ({ searchResults }) => {
   return (
     <div className="all">
       <div id="searchResults">
-        {searchResults.length === 0 && (
-          <>
-            <div className="mb-5">
-              <CarouselComp />
-            </div>
-            <h2 className="text-left mt-4">German</h2>
-            <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
-              {music &&
-                music.map((song) => <AlbumCard song={song} key={song.id} />)}
-            </Row>
-          </>
-        )}
+        <>
+          <div className="mb-5">
+            <CarouselComp />
+          </div>
+          <h2 className="text-left mt-4">German</h2>
+          <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
+            {music &&
+              music.map((song) => <AlbumCard song={song} key={song.id} />)}
+          </Row>
+        </>
 
-        {searchResults.length === 0 && (
-          <>
-            <h2 className="text-left mt-4">Ilayaraja Melodies</h2>
-            <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
-              {hipHopMusic &&
-                hipHopMusic.map((song) => (
-                  <AlbumCard song={song} key={song.id} />
-                ))}
-            </Row>
-          </>
-        )}
+        <>
+          <h2 className="text-left mt-4">A.R. Rahman</h2>
+          <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
+            {hipHopMusic &&
+              hipHopMusic.map((song) => (
+                <AlbumCard song={song} key={song.id} />
+              ))}
+          </Row>
+        </>
 
-        {searchResults.length === 0 && (
-          <>
-            <h2 className="text-left mt-4">Italian</h2>
-            <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
-              {rockMusic &&
-                rockMusic.map((song) => (
-                  <AlbumCard song={song} key={song.id} />
-                ))}
-            </Row>
-          </>
-        )}
-
-        {searchResults.length > 0 && (
-          <>
-            <h2 className="text-center mt-4">Search Results</h2>
-            <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
-              {searchResults &&
-                searchResults.map((song) => (
-                  <AlbumCard song={song} key={song.id} />
-                ))}
-            </Row>
-          </>
-        )}
+        <>
+          <h2 className="text-left mt-4">Italian</h2>
+          <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
+            {rockMusic &&
+              rockMusic.map((song) => <AlbumCard song={song} key={song.id} />)}
+          </Row>
+        </>
       </div>
     </div>
   );

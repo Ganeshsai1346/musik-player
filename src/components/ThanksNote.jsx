@@ -1,4 +1,5 @@
 /** @format */
+import { Link } from "react-router-dom";
 import "../css/ThanksNote.css";
 
 const ThanksNote = () => {
@@ -9,7 +10,9 @@ const ThanksNote = () => {
           <h1>Thank you !</h1>
           <p>Thanks for subscribing. </p>
           <p>you should receive a confirmation email soon </p>
-          <button className="go-home">go home</button>
+          <Link to="/">
+            <button className="go-home">go home</button>
+          </Link>
         </div>
       </div>
     </div>

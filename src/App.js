@@ -11,6 +11,7 @@ import FavouritesPage from "./pages/FavouritesPage";
 import PlayListPage from "./pages/PlayListPage";
 import PaymentPage from "./pages/PaymentPage";
 import PremiumPage from "./pages/PremiumPage";
+import SearchResultsPage from "./pages/SearchResultsPage";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/album/:id" element={<AlbumPage />} />
           <Route path="/artist/:id" element={<ArtistPage />} />
+          <Route path="/searchResults" element={<SearchResultsPage />} />
           <Route path="/favourites" element={<FavouritesPage />} />
           <Route path="/playlists" element={<PlayListPage />} />
           <Route path="/premium" element={<PremiumPage />} />
