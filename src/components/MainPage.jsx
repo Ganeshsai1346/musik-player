@@ -102,7 +102,7 @@ const MainPage = ({ searchResults }) => {
             <CarouselComp />
           </div>
           <h2 className="text-left mt-4">German</h2>
-          <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
+          <Row className="row-cols-2 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
             {music &&
               music.map((song) => <AlbumCard song={song} key={song.id} />)}
           </Row>
@@ -110,7 +110,7 @@ const MainPage = ({ searchResults }) => {
 
         <>
           <h2 className="text-left mt-4">A.R. Rahman</h2>
-          <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
+          <Row className="row-cols-2 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
             {hipHopMusic &&
               hipHopMusic.map((song) => (
                 <AlbumCard song={song} key={song.id} />
@@ -120,7 +120,7 @@ const MainPage = ({ searchResults }) => {
 
         <>
           <h2 className="text-left mt-4">Italian</h2>
-          <Row className="row-cols-1 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
+          <Row className="row-cols-2 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
             {rockMusic &&
               rockMusic.map((song) => <AlbumCard song={song} key={song.id} />)}
           </Row>
