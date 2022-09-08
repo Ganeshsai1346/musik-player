@@ -11,6 +11,8 @@
 @media (max-width: 600px) {
   .card-title {
     font-size: medium;
+    padding-left: 10px !important;
+    padding-right: 0 !important;
   }
   .duration {
     padding: 0 !important;

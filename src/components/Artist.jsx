@@ -101,7 +101,7 @@ const Artist = () => {
           <div className="mt-4 d-flex justify-content-center">
             <h2 className="text-white text-center font-weight-bold">Songs</h2>
           </div>
-          <div className="pt-5 mb-5">
+          <div className="pt-5 px-3 mb-5">
             <Row className="row-cols-2 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks">
               {songs?.map((song) => (
                 <AlbumCard song={song} key={song.id} />

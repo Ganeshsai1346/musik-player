@@ -11,5 +11,10 @@
 }
 .col-pad {
   padding-left: 2rem;
-  padding-right: 2rem;
+}
+
+@media (max-width: 600px) {
+  .col-pad {
+    padding-left: 4rem !important;
+  }
 }

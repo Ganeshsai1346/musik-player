@@ -9,3 +9,7 @@
   );
   min-height: 100vh;
 }
+
+.stripe {
+  margin-top: 9rem !important;
+}

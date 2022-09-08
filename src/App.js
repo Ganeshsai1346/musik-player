@@ -12,6 +12,7 @@ import PlayListPage from "./pages/PlayListPage";
 import PaymentPage from "./pages/PaymentPage";
 import PremiumPage from "./pages/PremiumPage";
 import SearchResultsPage from "./pages/SearchResultsPage";
+import AboutPage from "./pages/AboutPage";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
           <Route path="/playlists" element={<PlayListPage />} />
           <Route path="/premium" element={<PremiumPage />} />
           <Route path="/payment" element={<PaymentPage />} />
+          <Route path="/about" element={<AboutPage />} />
           <Route path="/login" element={<Login />} />
         </Routes>
       </BrowserRouter>

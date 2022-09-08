@@ -68,8 +68,8 @@ const Album = () => {
           </div>
         </Col>
       )}
-      <Col md={9} className="p-5">
-        <div className="mb-5 " id="trackList">
+      <Col md={9} className="p-5 song-container">
+        <div className="mb-5" id="trackList">
           {songs.length > 0 &&
             songs.map((song) => (
               <Song track={song} currentSong={song} key={song.id} />

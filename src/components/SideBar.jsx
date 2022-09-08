@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { Link, useNavigate } from "react-router-dom";
+import ChatBot from "../components/ChatBot";
 import "../css/SideBar.css";
 import fire from "../firebase-config";
 import { getSongsAction } from "../redux/actions";
@@ -32,7 +33,7 @@ const SideBar = ({ search }) => {
                     className="bx bx-menu mr-2"
                     id="btn"
                     onClick={() => setShow(!show)}></i>
-                  <div className="logo_name ml-3 mr-5">Musik</div>
+                  <div className="logo_name ml-3 mr-5">Music World</div>
                 </div>
               </li>
               <li>
@@ -80,9 +81,9 @@ const SideBar = ({ search }) => {
                 </Link>
               </li>
               <li>
-                <Link to="/trending" className="nav-link">
-                  <i className="bx bxs-hot nav-link-icon"></i>
-                  <span className="nav-link-name">Trending</span>
+                <Link to="/about" className="nav-link">
+                  <i className="bx bxs-user"></i>
+                  <span className="nav-link-name">About</span>
                   <span className="tooltip">Trending</span>
                 </Link>
               </li>
@@ -91,6 +92,7 @@ const SideBar = ({ search }) => {
                   <button style={{ backgroundColor: "coral" }}>Upgrade</button>
                 </Link>
               </li>
+              <ChatBot />
               <div className="profile">
                 <div className="profile-details">
                   <span className="name">Ganesh Sai Devarakonda</span>

@@ -6,6 +6,7 @@ import AlbumCard from "./AlbumCard";
 import "../css/MainPage.css";
 import { useEffect } from "react";
 import CarouselComp from "./Carousel";
+import ArtistCard from "./ArtistCard";
 
 const MainPage = ({ searchResults }) => {
   const [music, setMusic] = useState([]);
@@ -14,16 +15,16 @@ const MainPage = ({ searchResults }) => {
 
   const [rockMusic, setRockMusic] = useState([]);
   useEffect(() => {
-    fetchCrime();
+    fetchPop();
     fetchHipHop();
     fetchRock();
   }, []);
 
-  const fetchCrime = async () => {
+  const fetchPop = async () => {
     setMusic([]);
     try {
       const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/deezer/search?q=Schlager",
+        "https://striveschool-api.herokuapp.com/api/deezer/search?q=pop",
         {
           headers: {
             Authorization:
@@ -59,7 +60,7 @@ const MainPage = ({ searchResults }) => {
 
       if (response.ok) {
         const result = await response.json();
-        const songs = result.data.slice(12, 16);
+        const songs = result.data.slice(8, 12);
         setHipHopMusic(songs);
       } else {
         console.log("ERROR !!");
@@ -73,7 +74,7 @@ const MainPage = ({ searchResults }) => {
     setMusic([]);
     try {
       const response = await fetch(
-        "https://striveschool-api.herokuapp.com/api/deezer/search?q=italian",
+        "https://striveschool-api.herokuapp.com/api/deezer/search?q=Focus",
         {
           headers: {
             Authorization:
@@ -84,7 +85,7 @@ const MainPage = ({ searchResults }) => {
 
       if (response.ok) {
         const result = await response.json();
-        const songs = result.data.slice(12, 16);
+        const songs = result.data.slice(8, 12);
         setRockMusic(songs);
       } else {
         console.log("ERROR !!");
@@ -95,38 +96,51 @@ const MainPage = ({ searchResults }) => {
   };
 
   return (
-    <div className="all">
-      <div id="searchResults">
-        <>
-          <div className="mb-5">
-            <CarouselComp />
-          </div>
-          <h2 className="text-left mt-4">German</h2>
-          <Row className="row-cols-2 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
-            {music &&
-              music.map((song) => <AlbumCard song={song} key={song.id} />)}
-          </Row>
-        </>
+    <>
+      <div className="all">
+        <div id="searchResults">
+          <>
+            <div className="mb-5">
+              <CarouselComp />
+            </div>
+            <h2 className="text-left mt-4">Pop</h2>
+            <Row className="row-cols-2 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
+              {music &&
+                music.map((song) => <AlbumCard song={song} key={song.id} />)}
+            </Row>
+          </>
 
-        <>
-          <h2 className="text-left mt-4">A.R. Rahman</h2>
-          <Row className="row-cols-2 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
-            {hipHopMusic &&
-              hipHopMusic.map((song) => (
-                <AlbumCard song={song} key={song.id} />
-              ))}
-          </Row>
-        </>
+          <>
+            <h2 className="text-left mt-4">Melodies</h2>
+            <Row className="row-cols-2 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
+              {hipHopMusic &&
+                hipHopMusic.map((song) => (
+                  <AlbumCard song={song} key={song.id} />
+                ))}
+            </Row>
+          </>
 
-        <>
-          <h2 className="text-left mt-4">Italian</h2>
-          <Row className="row-cols-2 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
-            {rockMusic &&
-              rockMusic.map((song) => <AlbumCard song={song} key={song.id} />)}
-          </Row>
-        </>
+          <>
+            <h2 className="text-left mt-4">Focus</h2>
+            <Row className="row-cols-2 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
+              {rockMusic &&
+                rockMusic.map((song) => (
+                  <AlbumCard song={song} key={song.id} />
+                ))}
+            </Row>
+          </>
+          {/* <>
+            <h2 className="text-left mt-4">Artists</h2>
+            <Row className="row-cols-2 row-cols-sm-2 row-cols-lg-3 row-cols-xl-4 imgLinks py-3">
+              {rockMusic &&
+                rockMusic.map((song) => (
+                  <ArtistCard song={song} key={song.id} />
+                ))}
+            </Row>
+          </> */}
+        </div>
       </div>
-    </div>
+    </>
   );
 };
 

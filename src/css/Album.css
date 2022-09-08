@@ -49,3 +49,10 @@
 #btnPlay:hover::after {
   opacity: 1;
 }
+
+@media (max-width: 600px) {
+  .song-container {
+    padding-left: 6rem !important;
+    padding-right: 1.5rem !important;
+  }
+}
