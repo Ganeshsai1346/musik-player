@@ -11,7 +11,7 @@ const PaymentPage = () => {
       <Col md={2}>
         <SideBar />
       </Col>
-      <Col md={10} className="stripe mt-5">
+      <Col md={10} className="stripe">
         <StripeContainer />
       </Col>
     </Row>

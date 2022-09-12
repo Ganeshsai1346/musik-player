@@ -6,7 +6,6 @@ import AlbumCard from "./AlbumCard";
 import "../css/MainPage.css";
 import { useEffect } from "react";
 import CarouselComp from "./Carousel";
-import ArtistCard from "./ArtistCard";
 
 const MainPage = ({ searchResults }) => {
   const [music, setMusic] = useState([]);

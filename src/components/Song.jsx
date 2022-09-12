@@ -43,7 +43,7 @@ const Song = ({ track, currentSong }) => {
     <div
       className="py-3 text-dark text-left d-flex song-section"
       style={{ fontSize: "20px" }}>
-      <span style={{ color: "white" }}>
+      <span style={{ color: "white", paddingLeft: "30px" }}>
         {isFav ? (
           <HeartFill color="green" onClick={toggleFav} />
         ) : (

@@ -52,7 +52,7 @@
 
 @media (max-width: 600px) {
   .song-container {
-    padding-left: 6rem !important;
+    padding-left: 4rem !important;
     padding-right: 1.5rem !important;
   }
 }

@@ -14,7 +14,7 @@ body {
   background-attachment: fixed;
 }
 .content {
-  margin-top: 10rem;
+  margin-top: 10rem !important;
 }
 .wrapper-1 {
   width: 100%;

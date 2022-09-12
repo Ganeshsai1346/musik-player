@@ -65,7 +65,7 @@ const PaymentForm = () => {
           <FormComponent />
         </form>
       ) : (
-        <ThanksNote />
+        <ThanksNote className="mt-5" />
       )}
     </>
   );
